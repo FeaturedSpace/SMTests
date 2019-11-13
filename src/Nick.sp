@@ -1,7 +1,11 @@
 #include <sourcemod>
 #include <sdktools>
  
-ConVar g_cvarMySlapDamage = null;
+ 
+#pragma semicolon 1
+#pragma newdecls required
+
+ConVar g_cvarNickCharacterLimit = null;
  
 public Plugin myinfo = {
 	name = "Basic Nick Plugin",
