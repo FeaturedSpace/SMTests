@@ -45,6 +45,7 @@ public Action Command_Nick(int client, int args) {
 			 * failure reason and returns -1 so we know not 
 			 * to continue
 			 */
+			ReplyToCommand("Failed to find that player!");
 			return Plugin_Handled;
 		}
 	
@@ -53,12 +54,15 @@ public Action Command_Nick(int client, int args) {
 		char[max_chars] nick = arg1;
  	}
 	
+	// Retrieve our clients current name
 	GetClientName(target, target_name, sizeof(target_name));
 	
  	
-	
+	// Change the client's name
 	NickPlayer(target, nick);
-	ShowActivity2(client, "[SM] ", "%t changed their nickname to %t!", target_name, nick);
+	
+	// Broadcast the name. (In the final version this will definitely not be included. There is simply no need.
+	ShowActivity2(client, "[WiT] ", "%t changed their nickname to %t!", target_name, nick);
  
 	return Plugin_Handled;
 }
