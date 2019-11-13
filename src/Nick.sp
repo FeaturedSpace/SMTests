@@ -25,7 +25,7 @@ public void OnPluginStart() {
  
 public Action Command_Nick(int client, int args) {
 	char arg1[32], arg2[32];
-	int max_chars = g_cvarMySlapDamage.IntValue;
+	int max_chars = g_cvarNickCharacterLimit.IntValue;
  
 	/* Get the first argument */
 	GetCmdArg(1, arg1, sizeof(arg1));
@@ -73,10 +73,10 @@ public Action Command_Nick(int client, int args) {
 	
  
 	if (tn_is_ml) {
-		ShowActivity2(client, "[SM] ", "Slapped %t for %d damage!", target_name, damage);
+		ShowActivity2(client, "[SM] ", "Nicked to %t!", target_name, nick);
 	}
 	else {
-		ShowActivity2(client, "[SM] ", "Slapped %s for %d damage!", target_name, damage);
+		ShowActivity2(client, "[SM] ", "Nicked to %t!", target_name, nick);
 	}
  
 	return Plugin_Handled;
